@@ -36,9 +36,7 @@ img, video { display: block; max-width: 100%; }
   height: 62px; padding: 0 var(--pad-x);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: saturate(1.4) blur(10px);
-  transition: transform var(--ald-duration-400) var(--ald-ease-header);
 }
-.site-header.is-hidden { transform: translateY(-100%); }
 .logo { font: 500 21px/1 var(--font-logo); letter-spacing: -0.01em; }
 .logo:hover { opacity: .55; }
 .nav { display: flex; gap: 16px; font-size: 15px; font-weight: 500; }
@@ -121,7 +119,7 @@ main { padding: 180px var(--pad-x) 0; min-height: calc(100vh - 120px); }
 .js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; transition: none; }
-  .work-media img, .work-media video, .site-header { transition: none; }
+  .work-media img, .work-media video { transition: none; }
 }
 
 .site-footer .soon { padding-left: 10px; border-left: 1px solid var(--line); }
