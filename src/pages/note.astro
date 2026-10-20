@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { longDate } from '../lib';
+const notes = (await getCollection('notes', (n) => !n.data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="Note">
+  <div class="col">
+    {notes.length === 0
+      ? <p class="empty reveal">아직 노트가 없어요.</p>
+      : <ul class="rows">{notes.map((n) => (
+          <li class="row reveal"><a href={`${base}/note/${n.id}`}>
+            <span class="row-title">{n.data.title}</span><span class="row-date">{longDate(n.data.date)}</span>
+          </a></li>))}</ul>}
+  </div>
+</Base>

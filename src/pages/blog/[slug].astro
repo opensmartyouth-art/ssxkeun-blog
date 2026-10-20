@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { longDate } from '../../lib';
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts', (p) => !p.data.draft)).sort((a, b) => (a.data.section === b.data.section ? 0 : a.data.section === 'side' ? -1 : 1) || a.data.order - b.data.order);
+  return posts.map((p, i) => ({ params: { slug: p.id }, props: { p, prev: posts[i - 1], next: posts[i + 1] } }));
+}
+const { p, prev, next } = Astro.props;
+const { Content } = await render(p);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title={p.data.title} description={p.data.summary}>
+  <article class="col">
+    <header class="post-head reveal">
+      <h1>{p.data.title}</h1>
+      <p class="post-date">{longDate(p.data.date)}</p>
+    </header>
+    <div class="prose reveal"><Content /></div>
+    <nav class="post-nav">
+      {prev && <a class="prev" href={`${base}/blog/${prev.id}`}>‹ {prev.data.title}</a>}
+      {next && <a class="next" href={`${base}/blog/${next.id}`}>{next.data.title} ›</a>}
+    </nav>
+  </article>
+</Base>

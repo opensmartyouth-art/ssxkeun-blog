@@ -1,0 +1,77 @@
+---
+import '../styles/global.css';
+import 'katex/dist/katex.min.css';
+import { ClientRouter } from 'astro:transitions';
+import { site } from '../site';
+interface Props { title?: string; description?: string; }
+const { title, description = 'Product Designer. based on Seoul' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = Astro.url.pathname.replace(base, '') || '/';
+const nav = [
+  ['Index', '/'],
+  ['Archive', '/archive'],
+  ['Note', '/note'],
+];
+const isActive = (href: string) => (href === '/' ? path === '/' || path.startsWith('/blog') : path.startsWith(href));
+const fullTitle = title ? `${title} — Seongkeun Park` : 'Seongkeun Park';
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <ClientRouter />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <header class="site-header" id="site-header">
+      <a class="logo" href={`${base}/`}>Seongkeun Park</a>
+      <nav class="nav" aria-label="Main">
+        {nav.map(([label, href]) => (
+          <a href={`${base}${href === '/' ? '/' : href}`} aria-current={isActive(href) ? 'page' : undefined}>{label}</a>
+        ))}
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="col">
+        <span>@2026</span>
+        <nav>
+          <a href={site.resume} target="_blank" rel="noopener">Resume</a>
+          {site.linkedin
+            ? <a href={site.linkedin} target="_blank" rel="noopener">Linkedin</a>
+            : <span class="soon">Linkedin</span>}
+        </nav>
+      </div>
+    </footer>
+    <script>
+      function init() {
+        // scroll reveal
+        const els = document.querySelectorAll<HTMLElement>('.reveal');
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+        els.forEach((el, i) => { el.style.setProperty('--d', `${Math.min(i % 6, 5) * 50}ms`); io.observe(el); });
+        // header hides on scroll down, shows on scroll up
+        const header = document.getElementById('site-header')!;
+        let last = window.scrollY;
+        window.onscroll = () => {
+          const y = window.scrollY;
+          header.classList.toggle('is-hidden', y > last && y > 160);
+          last = y;
+        };
+        // autoplay videos only while visible
+        document.querySelectorAll<HTMLVideoElement>('video[data-autoplay]').forEach((v) => {
+          const vio = new IntersectionObserver(([e]) => (e.isIntersecting ? v.play().catch(() => {}) : v.pause()), { threshold: 0.25 });
+          vio.observe(v);
+        });
+      }
+      document.addEventListener('astro:page-load', init);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+const items = (await getCollection('archive')).sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const href = (l?: string) => (l?.startsWith('/') ? base + l : l);
+---
+<Base title="Archive">
+  <div class="col">
+    {items.map((w) => (
+      <article class="work reveal">
+        <div class="work-head"><h2>{w.data.title}</h2><p>{w.data.tools}</p></div>
+        <a class="work-media" href={href(w.data.link)} aria-label={w.data.title}>
+          {w.data.mediaType === 'video'
+            ? <video src={base + w.data.media} muted loop playsinline preload="metadata" data-autoplay></video>
+            : <img src={base + w.data.media} alt={w.data.title} loading="lazy" />}
+        </a>
+      </article>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { longDate } from '../../lib';
+export async function getStaticPaths() {
+  const notes = await getCollection('notes', (n) => !n.data.draft);
+  return notes.map((n) => ({ params: { slug: n.id }, props: { n } }));
+}
+const { n } = Astro.props;
+const { Content } = await render(n);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title={n.data.title}>
+  <article class="col">
+    <header class="post-head reveal"><h1>{n.data.title}</h1><p class="post-date">{longDate(n.data.date)}</p></header>
+    <div class="prose reveal"><Content /></div>
+    <nav class="post-nav"><a href={`${base}/note`}>‹ Note</a></nav>
+  </article>
+</Base>
