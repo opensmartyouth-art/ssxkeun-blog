@@ -123,3 +123,5 @@ main { padding: 180px var(--pad-x) 0; min-height: calc(100vh - 120px); }
 }
 
 .site-footer .soon { padding-left: 10px; border-left: 1px solid var(--line); }
+.prose figure { margin: 0 0 18px; }
+.prose figcaption { margin-top: 8px; text-align: center; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
