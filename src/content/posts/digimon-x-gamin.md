@@ -136,4 +136,4 @@ summary: 디지몬과 함께 달리면 러닝이 좀 더 재밌어질까?
 <figcaption>초특급 진화 · 아구몬에서 워그레이몬까지</figcaption>
 </figure>
 
-재미삼아 만든 영상: <a href="https://youtu.be/5UkZFjy4BzM" target="_blank" rel="noopener noreferrer">https://youtu.be/5UkZFjy4BzM</a>
+재미삼아 만든 영상: <a href="https://youtu.be/5UkZFjy4BzM" target="_blank" rel="noopener noreferrer">YouTube에서 보기</a>
