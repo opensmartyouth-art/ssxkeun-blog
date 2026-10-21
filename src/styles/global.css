@@ -37,13 +37,14 @@ img, video { display: block; max-width: 100%; }
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: saturate(1.4) blur(10px);
 }
-.logo { font: 500 21px/1 var(--font-logo); letter-spacing: -0.01em; }
+.logo { display: block; line-height: 0; }
+.logo img { height: 20px; width: auto; }
 .logo:hover { opacity: .55; }
 .nav { display: flex; gap: 16px; font-size: 15px; font-weight: 500; }
 .nav a { color: var(--muted); }
 .nav a:hover { color: var(--fg); }
 .nav a[aria-current='page'] { color: var(--fg); }
-@media (max-width: 560px) { .logo { font-size: 19px; } .nav { gap: 12px; } }
+@media (max-width: 560px) { .logo img { height: 18px; } .nav { gap: 12px; } }
 
 /* layout */
 main { padding: 180px var(--pad-x) 0; min-height: calc(100vh - 120px); }

@@ -30,7 +30,7 @@ const fullTitle = title ? `${title} — Seongkeun Park` : 'Seongkeun Park';
   </head>
   <body>
     <header class="site-header" id="site-header">
-      <a class="logo" href={`${base}/`}>Seongkeun Park</a>
+      <a class="logo" href={`${base}/`}><img src={`${base}/logo.svg`} alt="Seongkeun Park" width="131" height="20" /></a>
       <nav class="nav" aria-label="Main">
         {nav.map(([label, href]) => (
           <a href={`${base}${href === '/' ? '/' : href}`} aria-current={isActive(href) ? 'page' : undefined}>{label}</a>
