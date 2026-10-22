@@ -55,7 +55,7 @@ summary: 건강을 위해 일부러 불편한 앱을 만들었다.
 기본 설정에서는 업무 시간 중 매시 정각에 잠금이 시작된다. 화면에 카메라와 원형 가이드가 나타나고, 고개를 움직여 가이드를 채우면 된다. 기본 목표는 두 바퀴다.
 
 <figure>
-<video src="/ssxkeun-blog/media/neck-lock-lock.mp4" autoplay muted loop playsinline disablepictureinpicture aria-label="Neck Lock 잠금 화면 애니메이션"></video>
+<video src="/ssxkeun-blog/media/neck-lock-lock.mp4" poster="/ssxkeun-blog/media/neck-lock-lock-poster.jpg" preload="auto" autoplay muted loop playsinline disablepictureinpicture aria-label="Neck Lock 잠금 화면 애니메이션"></video>
 <figcaption>잠금 화면 · 고개를 두 바퀴 돌리면 잠금이 풀린다 (앱 화면을 다시 그린 목업)</figcaption>
 </figure>
 

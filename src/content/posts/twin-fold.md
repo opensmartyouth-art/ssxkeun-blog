@@ -264,7 +264,7 @@ BGM 역시 단순히 정적을 채우기 위한 음악이 아니었다.
 대신 손가락으로 드래그하는 움직임과 종이가 접히는 애니메이션, 짧은 햅틱 피드백을 통해 종이를 직접 다루는 느낌에 가까워지도록 고민했다.
 
 <figure>
-<video src="/ssxkeun-blog/media/twin-fold-play-loop.mp4" autoplay muted loop playsinline disablepictureinpicture aria-label="TwinFold 실제 플레이 화면"></video>
+<video src="/ssxkeun-blog/media/twin-fold-play-loop.mp4" poster="/ssxkeun-blog/media/twin-fold-play-loop-poster.jpg" preload="auto" autoplay muted loop playsinline disablepictureinpicture aria-label="TwinFold 실제 플레이 화면"></video>
 <figcaption>실제 플레이 화면 · 종이를 끌어 접어 같은 무늬를 지운다</figcaption>
 </figure>
 

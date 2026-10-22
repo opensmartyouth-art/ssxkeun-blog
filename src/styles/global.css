@@ -81,6 +81,7 @@ main { padding: 180px var(--pad-x) 0; min-height: calc(100vh - 120px); }
 .work--wide { max-width: 720px; margin-left: auto; margin-right: auto; }
 .work--wide .work-media { aspect-ratio: auto; }
 .work--wide .work-media img, .work--wide .work-media video { height: auto; }
+.work--wide .work-media video { aspect-ratio: 16 / 9; }
 @media (max-width: 560px) { .work-head { flex-direction: column; gap: 4px; } .work-head p { text-align: left; } }
 
 /* footer */

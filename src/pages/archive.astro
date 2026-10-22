@@ -12,7 +12,7 @@ const href = (l?: string) => (l?.startsWith('/') ? base + l : l);
         <div class="work-head"><h2>{w.data.title}</h2><p>{w.data.tools}</p></div>
         <a class="work-media" href={href(w.data.link)} aria-label={w.data.title}>
           {w.data.mediaType === 'video'
-            ? <video src={base + w.data.media} muted loop playsinline preload="metadata" data-autoplay></video>
+            ? <video src={base + w.data.media} poster={w.data.poster ? base + w.data.poster : undefined} muted loop playsinline preload="auto" data-autoplay></video>
             : <img src={base + w.data.media} alt={w.data.title} loading="lazy" />}
         </a>
       </article>
