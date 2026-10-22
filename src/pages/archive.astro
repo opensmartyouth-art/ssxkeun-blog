@@ -6,9 +6,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const href = (l?: string) => (l?.startsWith('/') ? base + l : l);
 ---
 <Base title="Archive">
-  <div class="col">
+  <div>
     {items.map((w) => (
-      <article class="work reveal">
+      <article class={`work reveal ${w.data.wide ? 'work--wide' : 'col'}`}>
         <div class="work-head"><h2>{w.data.title}</h2><p>{w.data.tools}</p></div>
         <a class="work-media" href={href(w.data.link)} aria-label={w.data.title}>
           {w.data.mediaType === 'video'

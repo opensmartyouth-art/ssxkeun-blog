@@ -24,6 +24,7 @@ const archive = defineCollection({
     media: z.string(),
     mediaType: z.enum(['image', 'video']).default('image'),
     link: z.string().optional(),
+    wide: z.boolean().default(false),
   }),
 });
 
