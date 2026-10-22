@@ -331,6 +331,4 @@ Neck Lock은 의도적으로 사용자의 작업을 방해한다.
 
 ---
 
-프로젝트: <a href="https://github.com/opensmartyouth-art/neck-lock" target="_blank" rel="noopener noreferrer">Neck Lock — GitHub</a>
-
 *Neck Lock은 업무 중 자세를 바꾸고 움직이는 습관을 실험하기 위한 개인 프로젝트이며, 목디스크 치료나 예방 효과를 검증한 의료용 제품은 아니다. 통증이나 어지럼증이 있다면 운동을 강행하지 않아야 하며, 목을 크게 회전하는 동작은 전문가의 조언에 따라 조정할 필요가 있다.*
