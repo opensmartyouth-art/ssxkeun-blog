@@ -64,9 +64,7 @@ main { padding: 180px var(--pad-x) 0; min-height: calc(100vh - 120px); }
 .row-title { font-size: 15px; font-weight: 500; word-break: keep-all; }
 .row-tag { color: var(--muted); font-weight: 400; }
 .row-date { flex: none; color: var(--fg-sub); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.row-date .m { display: none; }
 @media (max-width: 560px) {
-  .row-date .d { display: none; } .row-date .m { display: inline; }
   .row-title { min-width: 0; }
   .row-tag { white-space: nowrap; }
 }

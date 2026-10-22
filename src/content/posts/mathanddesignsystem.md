@@ -3,7 +3,6 @@ title: 디자인시스템의 수학적 연관관계
 date: 2026-10-10
 order: 3
 section: side
-tag: New
 summary: Primary와 Neutral은 같은 hue를 나눠 쓰고 채도만 낮춘다는 공통 구조를 가졌지만, 그 방식은 세 갈래였습니다.
 ---
 

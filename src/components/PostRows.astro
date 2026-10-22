@@ -1,19 +1,18 @@
 ---
-import { monthYear, monthYearNum } from '../lib';
+import { yymm, isNew, newUntil } from '../lib';
 const { posts } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const now = new Date();
 ---
 <ul class="rows">
   {posts.map((p: any) => {
-    const end = p.data.endDate ?? p.data.date;
+    const showNew = isNew(p.data.endDate ?? p.data.date, now);
+    const until = newUntil(p.data.endDate ?? p.data.date).toISOString();
     return (
       <li class="row reveal">
         <a href={`${base}/blog/${p.id}`}>
-          <span class="row-title">{p.data.title}{p.data.tag && <span class="row-tag"> · {p.data.tag}</span>}</span>
-          <span class="row-date">
-            <span class="d">{monthYear(p.data.date)} - {monthYear(end)}</span>
-            <span class="m">{monthYearNum(p.data.date)} - {monthYearNum(end)}</span>
-          </span>
+          <span class="row-title">{p.data.title}{showNew && <span class="row-tag" data-new-until={until}> · New</span>}</span>
+          <span class="row-date">{yymm(p.data.date)}</span>
         </a>
       </li>
     );

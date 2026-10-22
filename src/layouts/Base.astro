@@ -51,6 +51,8 @@ const fullTitle = title ? `${title} — Seongkeun Park` : 'Seongkeun Park';
     </footer>
     <script>
       function init() {
+        // New 뱃지: 빌드 이후 기간이 지났으면 숨긴다
+        document.querySelectorAll<HTMLElement>('[data-new-until]').forEach((el) => { if (Date.now() >= Date.parse(el.dataset.newUntil!)) el.remove(); });
         // scroll reveal
         const els = document.querySelectorAll<HTMLElement>('.reveal');
         const io = new IntersectionObserver((entries) => {

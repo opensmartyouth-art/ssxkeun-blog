@@ -3,7 +3,6 @@ title: Digimon x Gamin
 date: 2026-10-20
 order: 1
 section: side
-tag: New
 summary: 디지몬과 함께 달리면 러닝이 좀 더 재밌어질까?
 ---
 
